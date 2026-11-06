@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0a0f0d">
+<title>Дожить до рассвета в Суздале</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0f0d'/%3E%3Crect x='4' y='3' width='8' height='6' fill='%23377c6c'/%3E%3Crect x='6' y='5' width='2' height='2' fill='%23d9e8a2'/%3E%3Crect x='9' y='5' width='2' height='2' fill='%23d9e8a2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ ЭКРАН 1: ТИТУЛЬНЫЙ ============ -->
+<section id="screen-title" class="screen active">
+  <div class="title-scene">
+    <div class="moon"></div>
+    <div class="fog fog-a"></div>
+    <!-- Деревня: дом + церковь с луковкой -->
+    <svg class="houses" viewBox="0 0 400 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <!-- дальний план -->
+      <g fill="#1d352c">
+        <rect x="0" y="300" width="60" height="100"/>
+        <polygon points="0,300 30,282 60,300"/>
+        <rect x="52" y="308" width="52" height="92"/>
+        <polygon points="52,308 78,292 104,308"/>
+        <!-- церковь -->
+        <rect x="290" y="290" width="30" height="110"/>
+        <polygon points="290,290 305,276 320,290"/>
+        <rect x="298" y="250" width="14" height="40"/>
+        <path d="M305 216 C313 228 315 237 305 248 C295 237 297 228 305 216 Z"/>
+        <rect x="304" y="205" width="2" height="12"/>
+        <rect x="299" y="208" width="12" height="2"/>
+        <rect x="330" y="306" width="46" height="94"/>
+        <polygon points="330,306 353,290 376,306"/>
+      </g>
+      <!-- средний план: покосившиеся избы -->
+      <g fill="#152821">
+        <g transform="rotate(-2 115 400)">
+          <rect x="70" y="310" width="90" height="90"/>
+          <polygon points="70,310 115,284 160,310"/>
+          <rect x="128" y="288" width="9" height="18"/>
+        </g>
+        <g transform="rotate(2 258 400)">
+          <rect x="210" y="318" width="96" height="82"/>
+          <polygon points="210,318 258,290 306,318"/>
+          <rect x="272" y="296" width="10" height="20"/>
+        </g>
+        <rect x="0" y="336" width="64" height="64"/>
+        <polygon points="0,336 32,318 64,336"/>
+        <rect x="340" y="332" width="60" height="68"/>
+        <polygon points="340,332 370,314 400,332"/>
+      </g>
+      <!-- ближний план -->
+      <g fill="#0d1713">
+        <g transform="rotate(-3 62 400)">
+          <rect x="10" y="352" width="104" height="48"/>
+          <polygon points="10,352 62,330 114,352"/>
+        </g>
+        <g transform="rotate(2 341 400)">
+          <rect x="286" y="356" width="110" height="44"/>
+          <polygon points="286,356 341,336 396,356"/>
+        </g>
+        <path d="M200 400 L200 340 M200 356 L182 338 M200 348 L216 332 M200 366 L188 356 M200 342 L212 330" stroke="#0d1713" stroke-width="5" fill="none"/>
+      </g>
+      <!-- окна: свет есть, людей не видно -->
+      <g fill="#e9f3ae">
+        <rect x="24" y="318" width="10" height="12"/>
+        <rect x="88" y="322" width="10" height="12" class="win-flick"/>
+        <rect x="232" y="330" width="11" height="13"/>
+        <rect x="262" y="330" width="11" height="13" class="win-flick"/>
+        <rect x="296" y="300" width="9" height="11"/>
+        <rect x="352" y="344" width="10" height="11" class="win-flick"/>
+        <rect x="366" y="344" width="10" height="11"/>
+      </g>
+      <g fill="#7ba98f" opacity="0.55">
+        <rect x="42" y="318" width="10" height="12"/>
+        <rect x="108" y="322" width="10" height="12"/>
+        <rect x="246" y="330" width="11" height="13"/>
+        <rect x="66" y="358" width="12" height="12"/>
+        <rect x="330" y="362" width="12" height="12"/>
+      </g>
+    </svg>
+    <div class="fog fog-b"></div>
+    <!-- силуэт человека -->
+    <svg class="figure" viewBox="0 0 60 160" aria-hidden="true">
+      <g fill="#04070a">
+        <circle cx="30" cy="16" r="12"/>
+        <path d="M30 28 C16 30 12 42 11 60 L9 118 L17 118 L20 78 L22 118 L38 118 L40 78 L43 118 L51 118 L49 60 C48 42 44 30 30 28 Z"/>
+        <rect x="17" y="112" width="8" height="48" rx="2"/>
+        <rect x="35" y="112" width="8" height="48" rx="2"/>
+      </g>
+    </svg>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+  <div class="title-content">
+    <div class="title-top">
+      <div class="title-badge">хоррор · по реальным объявлениям</div>
+      <h1 class="game-title">Дожить<br>до рассвета<br>в Суздале</h1>
+      <p class="title-sub">каждая цена — договор с чем-то тёмным</p>
+    </div>
+    <div class="title-bottom">
+      <button class="btn btn-primary" id="btn-start">Начать игру</button>
+      <p class="title-hint">ночь одна · квартир десять · жизней пять</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЭКРАН 2: ОНБОРДИНГ ============ -->
+<section id="screen-onboarding" class="screen">
+  <div class="panel">
+    <h2 class="panel-title">Но&hellip; это что за место?</h2>
+    <div class="scroll-box">
+      <p class="story">Вы приехали в Суздаль ночным автобусом. Последний рейс, пассажиров не было — и водитель ни разу не посмотрел в зеркало. Туман глотает купола, фонари горят вполнакала, а в окнах изб кто-то есть — но вы никого не видите.</p>
+      <p class="story">В этом городе до рассвета доживают те, кто знает цены. Хозяева не называют стоимость. Они показывают квартиру — и смотрят, сколько вы назовёте сами. <b>Угадали — вас пустят на ночь. Ошиблись — дверь закроется, и следующую вам уже никто не откроет.</b></p>
+      <h3 class="rules-title">Правила</h3>
+      <ul class="rules">
+        <li>10 квартир — 10 попыток дожить до утра.</li>
+        <li>У каждой квартиры 3 цены. Одна настоящая, одна завышена, одна занижена. И они почти неотличимы.</li>
+        <li>Выберите цену и нажмите «Оценить».</li>
+        <li>У вас <b>5 жизней</b> на всю ночь. Ошибка — минус одна.</li>
+        <li>Каждое верное объявление — <b>+100 очков</b>. Сэкономленное или переплаченное — фиксируется.</li>
+        <li>Сжигать жизни не стоит: Суздаль всё видит. И помнит, кто готов платить.</li>
+      </ul>
+      <p class="story whisper">Не смотрите слишком долго на фото. Иногда кажется, что на них кто-то пересматривает вас.</p>
+    </div>
+    <button class="btn btn-primary" id="btn-onboard">Я готов. Пустите меня</button>
+  </div>
+</section>
+
+<!-- ============ ЭКРАН 3: ИГРА ============ -->
+<section id="screen-game" class="screen">
+  <header class="hud">
+    <div class="hearts" id="hearts" aria-label="жизни"></div>
+    <div class="hud-score" id="hud-score">0</div>
+  </header>
+  <div class="progress-wrap">
+    <div class="progress-label" id="progress-label">1 / 10</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div class="apartment-panel">
+    <div class="gallery-frame">
+      <div class="gallery" id="gallery"></div>
+      <button class="gal-btn gal-prev" id="gal-prev" aria-label="назад">&#9664;</button>
+      <button class="gal-btn gal-next" id="gal-next" aria-label="вперёд">&#9654;</button>
+      <div class="gal-dots" id="gal-dots"></div>
+    </div>
+    <div class="apt-info">
+      <div class="apt-title" id="apt-title"></div>
+      <div class="apt-address" id="apt-address"></div>
+    </div>
+    <div class="price-question">Сколько стоит эта ночь?</div>
+    <div class="price-options" id="price-options"></div>
+    <div class="verdict-box hidden" id="verdict-box">
+      <div class="verdict-line" id="verdict-line"></div>
+      <div class="verdict-real" id="verdict-real"></div>
+    </div>
+    <button class="btn btn-primary" id="btn-rate" disabled>Оценить</button>
+    <button class="btn btn-next hidden" id="btn-next">Следующая квартира ›</button>
+  </div>
+</section>
+
+<!-- ============ ЭКРАН 4: ПРОВАЛ ============ -->
+<section id="screen-gameover" class="screen">
+  <div class="panel panel-dark">
+    <h2 class="doom-title">Двери закрылись</h2>
+    <p class="doom-text">Вы не смогли снять ни одну квартиру.<br>
+    Ошибки считали не вы — их считали за вас.<br><br>
+    Эта ночь в Суздале стала для вас последней.<br>
+    Окна гаснут одно за другим.<br>
+    Рассвет наступит — но уже без вас.</p>
+    <p class="doom-score" id="gameover-score"></p>
+    <button class="btn btn-primary" id="btn-retry">Попробовать снова</button>
+  </div>
+</section>
+
+<!-- ============ ЭКРАН 5: ИТОГИ ============ -->
+<section id="screen-result" class="screen">
+  <div class="panel">
+    <h2 class="panel-title">Рассвет</h2>
+    <p class="result-lead" id="result-lead"></p>
+    <div class="result-stats">
+      <div class="stat-row"><span>Пройдено квартир</span><b id="r-passed">0/10</b></div>
+      <div class="stat-row"><span>Верных оценок</span><b id="r-correct">0</b></div>
+      <div class="stat-row"><span>Осталось жизней</span><b id="r-lives">0</b></div>
+      <div class="stat-row"><span>Бонус за жизни</span><b id="r-bonus">+0</b></div>
+      <div class="stat-row"><span>Переплата</span><b id="r-overpay">0 ₽</b></div>
+      <div class="stat-row stat-total"><span>Итог</span><b id="r-score">0</b></div>
+    </div>
+    <div class="verdict-card">
+      <div class="verdict-tag" id="r-tag"></div>
+      <p class="verdict-text" id="r-text"></p>
+    </div>
+    <button class="btn btn-primary" id="btn-again">Ещё одна ночь</button>
+  </div>
+</section>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
