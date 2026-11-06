@@ -73,20 +73,34 @@ function show(id) {
 }
 
 // ---------- Генерация вариантов цены ----------
-// Один вариант — реальная цена, один завышен, один занижен; похожи между собой.
+// Настоящая цена + два фейковых. Паттерн меняется случайно, чтобы
+// реальную цену нельзя было вычислить как «среднюю»:
+//   A: один фейк ниже, один выше → настоящая посередине
+//   B: оба фейка выше            → настоящая — самая низкая
+//   C: оба фейка ниже            → настоящая — самая высокая
 function buildOptions(real) {
-  const lowFactor = 0.80 + Math.random() * 0.10;   // −20%…−10%
-  const highFactor = 1.10 + Math.random() * 0.10;  // +10%…+20%
   const round10 = (v) => Math.max(500, Math.round(v / 10) * 10);
+  const r = Math.random();
+  let f1, f2;
+  if (r < 0.34) {            // A — по обе стороны
+    f1 = 0.80 + Math.random() * 0.10;    // −20%…−10%
+    f2 = 1.10 + Math.random() * 0.10;    // +10%…+20%
+  } else if (r < 0.67) {     // B — обе завышены
+    f1 = 1.08 + Math.random() * 0.07;    // +8%…+15%
+    f2 = 1.22 + Math.random() * 0.18;    // +22%…+40%
+  } else {                   // C — обе занижены
+    f1 = 0.86 + Math.random() * 0.07;    // −14%…−7%
+    f2 = 0.65 + Math.random() * 0.13;    // −35%…−22%
+  }
   const opts = shuffle([
     { value: real, correct: true },
-    { value: round10(real * lowFactor), correct: false },
-    { value: round10(real * highFactor), correct: false }
+    { value: round10(real * f1), correct: false },
+    { value: round10(real * f2), correct: false }
   ]);
-  // защита от совпадений после округления
-  const seen = new Set();
+  // защита от совпадений после округления (правильный ответ не трогаем)
+  const seen = new Set([real]);
   opts.forEach(o => {
-    while (seen.has(o.value)) o.value += 10;
+    while (!o.correct && seen.has(o.value)) o.value += 10;
     seen.add(o.value);
   });
   return opts;
